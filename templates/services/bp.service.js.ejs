@@ -1,0 +1,18 @@
+<%if (props.serviceLib === 'axios') { %>import axios from 'axios';<% } else { %>import VeamsHttp from 'veams/src/js/services/http';<% } %>
+
+class <%= bpJsName %>Service {
+	http = <%if (props.serviceLib === 'axios') { %>axios.create({
+		baseURL: 'http://localhost:8080/api/<%= bpName %>'
+	})<% } else { %>new VeamsHttp({
+		url: `http://localhost:8080/api/<%= bpName %>`,
+		type: 'json'
+	})<% } %>;
+
+	fetch() {
+		return this.http.get();
+	}
+}
+
+const <%= bpName %>Service = new <%= bpJsName %>Service();
+
+export default <%= bpName %>Service;

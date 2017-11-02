@@ -1,0 +1,16 @@
+import * as Actions from './<%= filename %>.actions';
+import {<%= bpName.toUpperCase() %>_INITIAL_STATE} from "./<%= filename %>.state";
+
+export default function <%= bpName %>Reducer(state = <%= bpName.toUpperCase() %>_INITIAL_STATE, action) {
+	switch (action.type) {
+		case Actions.<%= bpName.toUpperCase() %>_LOADED:
+			return handle<%= bpName %>LoadedAction(state, action.payload);
+
+		default:
+			return state;
+	}
+}
+
+function handle<%= bpName %>LoadedAction(state, payload) {
+	return {...state, payload};
+}

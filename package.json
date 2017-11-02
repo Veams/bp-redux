@@ -1,0 +1,23 @@
+{
+	"name": "veams-redux-blueprint",
+	"version": "0.0.1",
+	"description": "Blueprint templates for redux store.",
+	"scripts": {
+		"test": "echo \"Error: no test specified\" && exit 1"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/Veams/veams-redux-blueprint.git"
+	},
+	"keywords": [
+		"Veams",
+		"Redux",
+		"Blueprint"
+	],
+	"author": "Sebastian Fitzner",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/Veams/veams-redux-blueprint/issues"
+	},
+	"homepage": "https://github.com/Veams/veams-redux-blueprint#readme"
+}

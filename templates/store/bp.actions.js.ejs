@@ -1,0 +1,23 @@
+export const <%= bpNameUppercase %>_LOAD = '@@<%= namespace %>/<%= filename %>/load';
+export const <%= bpNameUppercase %>_LOADED = '@@<%= namespace %>/<%= filename %>/loaded';
+export const <%= bpNameUppercase %>_LOADED_FAIL = '@@<%= namespace %>/<%= filename %>/loaded-fail';
+
+export function <%= bpName %>LoadAction() {
+	return {
+		type: <%= bpNameUppercase %>_LOAD
+	}
+}
+
+export function <%= bpName %>LoadedAction(payload) {
+	return {
+		type: <%= bpNameUppercase %>_LOADED,
+		payload
+	}
+}
+
+export function <%= bpName %>LoadedFailAction(payload) {
+	return {
+		type: <%= bpNameUppercase %>_LOADED_FAIL,
+		payload
+	}
+}

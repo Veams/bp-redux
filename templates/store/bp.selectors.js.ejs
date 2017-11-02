@@ -1,0 +1,16 @@
+import { createSelector } from 'relesect';
+
+/**
+ * Return whole state object.
+ *
+ * @param state {Object} - Current store state.
+ */
+export const get<%= bpJsName %> = state => state.<%= bpName %>;
+
+/**
+ * Return the initialized value by using `createSelector`.
+ *
+ * @param {Function} - Selector function which gets the whole slice of the state object.
+ * @param {Function} - Returns initialized state by using a simple arrow function.
+ */
+export const get<%= bpJsName %>Initialized = createSelector(get<%= bpJsName %>, <%= bpName %> => <%= bpName %>.initialized);
