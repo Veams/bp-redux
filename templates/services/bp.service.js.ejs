@@ -1,16 +1,99 @@
 <%if (props.serviceLib === 'axios') { %>import axios from 'axios';<% } else { %>import VeamsHttp from 'veams/src/js/services/http';<% } %>
 
 class <%= bpJsName %>Service {
+	url = 'http://localhost:8080/api/<%= bpName %>';
 	http = <%if (props.serviceLib === 'axios') { %>axios.create({
-		baseURL: 'http://localhost:8080/api/<%= bpName %>'
 	})<% } else { %>new VeamsHttp({
-		url: `http://localhost:8080/api/<%= bpName %>`,
 		type: 'json'
 	})<% } %>;
 
-	fetch() {
+	/**
+	 * Static id checker.
+	 *
+	 * @param {String} id - Id of the endpoint.
+	 */
+	static checkId(id) {
+		if (!id || typeof id !== 'string') {
+			throw new Error(`CommentsService :: You have to provide an "id" and this "id" needs to be a string!`);
+		}
+	}<%if (props.methods && props.methods.indexOf('create') !== -1) { %>
+
+	/**
+	 * Post data to the endpoint.
+	 *
+	 * @param {Array} data - Array object which contains the data items you want to save.
+	 */
+	create(data) {
+		return this.http.post(`${this.url}`, data);
+	}
+
+	/**
+	 * Post one data item to the endpoint.
+	 *
+	 * @param {String} id - Id of the endpoint.
+	 * @param {Object} data - Data object you want to save, @see initial state structure.
+	 */
+	createById(id, data) {
+		this.constructor.checkId(id);
+
+		return this.http.post(`${this.url}/${id}`, data);
+	}<% } %><%if (props.methods && props.methods.indexOf('read') !== -1) { %>
+
+	/**
+	 * Fetch data items from the endpoint.
+	 */
+	read() {
 		return this.http.get();
 	}
+
+	/**
+	 * Fetch data item by provided id from the endpoint.
+	 *
+	 * @param {String} id - Id of the endpoint.
+	 */
+	readById(id) {
+		this.constructor.checkId(id);
+
+		return this.http.get(`${this.url}/${id}`);
+	}<% } %><%if (props.methods && props.methods.indexOf('update') !== -1) { %>
+
+	/**
+	 * Patch value at the given endpoint.
+	 *
+	 * @param {Array} data - Array object which contains the data items you want to update.
+	 */
+	update(data) {
+		return this.http.put(`${this.url}`, data);
+	}
+
+	/**
+	 * Patch value at the given endpoint.
+	 *
+	 * @param {String} id - Id of the endpoint.
+	 * @param {Object} data - Data object you want to update, @see initial state structure.
+	 */
+	updateById(id, data) {
+		this.constructor.checkId(id);
+
+		return this.http.put(`${this.url}/${id}`, data);
+	}<% } %><%if (props.methods && props.methods.indexOf('delete') !== -1) { %>
+	/**
+	 * Remove item at the given endpoint.
+	 */
+	delete() {
+		return this.http.delete(`${this.url}`);
+	}
+
+	/**
+	 * Remove item at the given endpoint.
+	 *
+	 * @param {String} id - Id of the endpoint.
+	 */
+	deleteById(id) {
+		this.constructor.checkId(id);
+
+		return this.http.delete(`${this.url}/${id}`);
+	}<% } %>
 }
 
 const <%= bpName %>Service = new <%= bpJsName %>Service();

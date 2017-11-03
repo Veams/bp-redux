@@ -15,7 +15,7 @@ then you can use Veams to do that automatically for you by using this blueprint.
 
 ``` json
 {
-	"blueprints": {
+    "blueprints": {
         "store": {
             "skipImports": true,
             "prompts": "node_modules/veams-redux-blueprint/prompts",
