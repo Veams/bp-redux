@@ -1,7 +1,23 @@
+<%if (props.methods && props.methods.indexOf('create') !== -1) { %> // Create actions
+export const <%= bpNameUppercase %>_CREATE = '@@<%= namespace %>/<%= filename %>/create';
+export const <%= bpNameUppercase %>_CREATED = '@@<%= namespace %>/<%= filename %>/created';
+export const <%= bpNameUppercase %>_CREATED_FAIL = '@@<%= namespace %>/<%= filename %>/created-fail';<% } %>
+<%if (props.methods && props.methods.indexOf('read') !== -1) { %> // Read and load actions
 export const <%= bpNameUppercase %>_LOAD = '@@<%= namespace %>/<%= filename %>/load';
 export const <%= bpNameUppercase %>_LOADED = '@@<%= namespace %>/<%= filename %>/loaded';
-export const <%= bpNameUppercase %>_LOADED_FAIL = '@@<%= namespace %>/<%= filename %>/loaded-fail';
+export const <%= bpNameUppercase %>_LOADED_FAIL = '@@<%= namespace %>/<%= filename %>/loaded-fail';<% } %>
+<%if (props.methods && props.methods.indexOf('update') !== -1) { %> // Update actions
+export const <%= bpNameUppercase %>_UPATE = '@@<%= namespace %>/<%= filename %>/update';
+export const <%= bpNameUppercase %>_UPATED = '@@<%= namespace %>/<%= filename %>/updated';
+export const <%= bpNameUppercase %>_UPATED_FAIL = '@@<%= namespace %>/<%= filename %>/updated-fail';<% } %>
+<%if (props.methods && props.methods.indexOf('delete') !== -1) { %> // Delete actions
+export const <%= bpNameUppercase %>_DELETE = '@@<%= namespace %>/<%= filename %>/delete';
+export const <%= bpNameUppercase %>_DELETED = '@@<%= namespace %>/<%= filename %>/deleted';
+export const <%= bpNameUppercase %>_DELETED_FAIL = '@@<%= namespace %>/<%= filename %>/deleted-fail';<% } %>
 
+/**
+ * READ & LOAD ACTIONS
+ */
 export function <%= bpName %>LoadAction() {
 	return {
 		type: <%= bpNameUppercase %>_LOAD

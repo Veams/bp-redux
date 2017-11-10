@@ -11,11 +11,11 @@ import * as Actions from "./<%= filename %>.actions";
 import <%= bpName %>Service from '../services/<%= filename %>.service';
 
 /**
- * Fetch <%= bpName %> from API.
+ * Read <%= bpName %> from API.
  */
-export const <%= bpName %>FetchEpic = (action$, store) =>
+export const <%= bpName %>ReadEpic = (action$, store) =>
 	action$
 		.ofType(Actions.<%= bpName.toUpperCase() %>_LOAD)
-		.switchMap(() => <%= bpName %>Service.fetch())
+		.switchMap(() => <%= bpName %>Service.read())
 		.map(response => Actions.<%= bpName %>LoadedAction(response))
 		.catch((e) => Observable.of(Actions.<%= bpName %>LoadedFailAction(e)));

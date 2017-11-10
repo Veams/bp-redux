@@ -12,5 +12,5 @@ export default function <%= bpName %>Reducer(state = <%= bpName.toUpperCase() %>
 }
 
 function handle<%= bpName %>LoadedAction(state, payload) {
-	return {...state, payload};
+	return {...state, initialized: payload};
 }

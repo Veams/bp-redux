@@ -1,5 +1,6 @@
 module.exports = (context) => [
 	{
+		when: (answers) => answers.blueprints.indexOf('/services/bp.service.js.ejs') !== -1,
 		type: 'confirm',
 		name: 'service',
 		message: 'Do you want to configure your service?',
