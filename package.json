@@ -1,5 +1,5 @@
 {
-	"name": "veams-redux-blueprint",
+	"name": "veams-bp-redux",
 	"version": "0.0.4",
 	"description": "Blueprint templates for redux store.",
 	"scripts": {
@@ -7,7 +7,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/Veams/veams-redux-blueprint.git"
+		"url": "git+https://github.com/Veams/veams-bp-redux.git"
 	},
 	"keywords": [
 		"Veams",
@@ -17,7 +17,7 @@
 	"author": "Sebastian Fitzner",
 	"license": "MIT",
 	"bugs": {
-		"url": "https://github.com/Veams/veams-redux-blueprint/issues"
+		"url": "https://github.com/Veams/veams-bp-redux/issues"
 	},
-	"homepage": "https://github.com/Veams/veams-redux-blueprint#readme"
+	"homepage": "https://github.com/Veams/veams-bp-redux#readme"
 }
