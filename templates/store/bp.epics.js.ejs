@@ -13,9 +13,9 @@ import <%= bpName %>Service from '../services/<%= filename %>.service';
 /**
  * Read <%= bpName %> from API.
  */
-export const <%= bpName %>ReadEpic = (action$, store) =>
+export const <%= bpName %>Read = (action$, store) =>
 	action$
 		.ofType(Actions.<%= bpName.toUpperCase() %>_LOAD)
 		.switchMap(() => <%= bpName %>Service.read())
-		.map(response => Actions.<%= bpName %>LoadedAction(response))
-		.catch((e) => Observable.of(Actions.<%= bpName %>LoadedFailAction(e)));
+		.map(response => Actions.<%= bpName %>Loaded(response))
+		.catch((e) => Observable.of(Actions.<%= bpName %>LoadedFail(e)));

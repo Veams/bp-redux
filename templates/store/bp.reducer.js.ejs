@@ -4,13 +4,13 @@ import {<%= bpName.toUpperCase() %>_INITIAL_STATE} from "./<%= filename %>.state
 export default function <%= bpName %>Reducer(state = <%= bpName.toUpperCase() %>_INITIAL_STATE, action) {
 	switch (action.type) {
 		case Actions.<%= bpName.toUpperCase() %>_LOADED:
-			return handle<%= bpName %>LoadedAction(state, action.payload);
+			return handle<%= bpJsName %>Loaded(state, action.payload);
 
 		default:
 			return state;
 	}
 }
 
-function handle<%= bpName %>LoadedAction(state, payload) {
+function handle<%= bpJsName %>Loaded(state, payload) {
 	return {...state, initialized: payload};
 }

@@ -18,20 +18,20 @@ export const <%= bpNameUppercase %>_DELETED_FAIL = '@@<%= namespace %>/<%= filen
 /**
  * READ & LOAD ACTIONS
  */
-export function <%= bpName %>LoadAction() {
+export function <%= bpName %>Load() {
 	return {
 		type: <%= bpNameUppercase %>_LOAD
 	}
 }
 
-export function <%= bpName %>LoadedAction(payload) {
+export function <%= bpName %>Loaded(payload) {
 	return {
 		type: <%= bpNameUppercase %>_LOADED,
 		payload
 	}
 }
 
-export function <%= bpName %>LoadedFailAction(payload) {
+export function <%= bpName %>LoadedFail(payload) {
 	return {
 		type: <%= bpNameUppercase %>_LOADED_FAIL,
 		payload

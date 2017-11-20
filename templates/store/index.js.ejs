@@ -1,0 +1,13 @@
+import <%= bpName.toUpperCase() %>_INITIAL_STATE from './<%= filename %>.state';
+import <%= bpName %>Reducer from './<%= filename %>.reducer';
+import * as <%= bpName %>Epics from './<%= filename %>.epics';
+import * as <%= bpName %>Actions from './<%= filename %>.actions';
+import * as from<%= bpJsName %> from './<%= filename %>.selectors';
+
+export {
+	<%= bpName.toUpperCase() %>_INITIAL_STATE,
+	<%= bpName %>Reducer,
+	<%= bpName %>Epics,
+	<%= bpName %>Actions,
+	from<%= bpJsName %>
+}
