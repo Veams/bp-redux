@@ -8,9 +8,25 @@ import { createSelector } from 'reselect';
 export const get<%= bpJsName %> = state => state.<%= bpName %>;
 
 /**
- * Return the initialized value by using `createSelector`.
+ * Return entities by using `createSelector`.
  *
  * @param {Function} - Selector function which gets the whole slice of the state object.
- * @param {Function} - Returns initialized state by using a simple arrow function.
+ * @param {Function} - Returns entities state by using a simple arrow function.
  */
-export const get<%= bpJsName %>Initialized = createSelector(get<%= bpJsName %>, <%= bpName %> => <%= bpName %>.initialized);
+export const get<%= bpJsName %>Entities = createSelector(get<%= bpJsName %>, <%= bpName %> => <%= bpName %>.entities);
+
+/**
+ * Return fetch status state by using `createSelector`.
+ *
+ * @param {Function} - Selector function which gets the whole slice of the state object.
+ * @param {Function} - Returns fetch status state by using a simple arrow function.
+ */
+export const get<%= bpJsName %>FetchStatus = createSelector(get<%= bpJsName %>, <%= bpName %> => <%= bpName %>.fetchStatus);
+
+/**
+ * Return error state by using `createSelector`.
+ *
+ * @param {Function} - Selector function which gets the whole slice of the state object.
+ * @param {Function} - Returns error state by using a simple arrow function.
+ */
+export const get<%= bpJsName %>Error = createSelector(get<%= bpJsName %>, <%= bpName %> => <%= bpName %>.error);

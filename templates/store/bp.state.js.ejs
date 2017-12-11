@@ -1,3 +1,5 @@
 export const <%= bpName.toUpperCase() %>_INITIAL_STATE = {
-	initialized: false
+	fetchStatus: 'none', // 'none', 'loading', 'loaded', 'failed'
+	error: null, // Contains error code and message
+	entities: null
 };

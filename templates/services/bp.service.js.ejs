@@ -1,11 +1,24 @@
-<%if (props.serviceLib === 'axios') { %>import axios from 'axios';<% } else { %>import VeamsHttp from 'veams/src/js/services/http';<% } %>
+<%if (props.serviceLib === 'axios') { %>import axios from 'axios';<% } else { %>import VeamsHttp from 'veams-services/lib/http';<% } %>
+<% if (props.serviceLib === 'veamsHttp') { %>
+// Service intance
+let httpService = new VeamsHttp({
+	type: 'json'
+});
+
+/**
+* Method overrides the default parser,
+* which only returns `responseText`
+*/
+httpService.parser = ({ request }) => ({
+	status: request.status,
+	statusText: request.statusText,
+	body: JSON.parse(request.responseText)
+});<% } %>
 
 class <%= bpJsName %>Service {
-	url = 'http://localhost:8080/api/<%= bpName %>';
-	http = <%if (props.serviceLib === 'axios') { %>axios.create({
-	})<% } else { %>new VeamsHttp({
-		type: 'json'
-	})<% } %>;
+	url = '<%= props.serviceUrl %>';
+	http = <% if (props.serviceLib === 'axios') { %>axios.create({
+	})<% } else { %>httpService<% } %>;
 
 	/**
 	 * Static id checker.
@@ -14,7 +27,7 @@ class <%= bpJsName %>Service {
 	 */
 	static checkId(id) {
 		if (!id || typeof id !== 'string') {
-			throw new Error(`CommentsService :: You have to provide an "id" and this "id" needs to be a string!`);
+			throw new Error(`<%= bpJsName %>Service :: You have to provide an "id" and this "id" needs to be a string!`);
 		}
 	}<%if (props.methods && props.methods.indexOf('create') !== -1) { %>
 
@@ -43,7 +56,7 @@ class <%= bpJsName %>Service {
 	 * Fetch data items from the endpoint.
 	 */
 	read() {
-		return this.http.get();
+		return this.http.get(`${this.url}`);
 	}
 
 	/**
