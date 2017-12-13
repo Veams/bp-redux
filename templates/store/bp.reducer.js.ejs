@@ -10,6 +10,9 @@ export default function <%= bpName %>Reducer(state = <%= bpName.toUpperCase() %>
 		case Actions.<%= bpName.toUpperCase() %>_LOADED:
 			return handle<%= bpJsName %>Loaded(state, action.payload);
 
+		case Actions.<%= bpName.toUpperCase() %>_LOADED_FAIL:
+			return handle<%= bpJsName %>LoadedFailed(state, action.payload);
+
 		default:
 			return state;
 	}
@@ -26,6 +29,14 @@ function handle<%= bpJsName %>Loaded(state, payload) {
 	return {
 		...state,
 		fetchStatus: 'loaded',
-		entitites: payload.body
+		entities: payload.body
+	};
+}
+
+function handle<%= bpJsName %>LoadedFailed(state, payload) {
+	return {
+		...state,
+		fetchStatus: 'failed',
+		error: payload
 	};
 }
