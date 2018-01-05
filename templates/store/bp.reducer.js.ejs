@@ -21,6 +21,7 @@ export default function <%= bpName %>Reducer(state = <%= bpName.toUpperCase() %>
 function handle<%= bpJsName %>Load(state) {
 	return {
 		...state,
+		error: {},
 		fetchStatus: 'loading'
 	};
 }
@@ -29,6 +30,7 @@ function handle<%= bpJsName %>Loaded(state, payload) {
 	return {
 		...state,
 		fetchStatus: 'loaded',
+		error: {},
 		entities: payload.body
 	};
 }
