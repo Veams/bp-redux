@@ -1,4 +1,4 @@
-# Veams Blueprint :: Redux
+# Veams Blueprint :: Redux (`@veams/bp-redux`)
 
 With this blueprint you can scaffold a whole store slice in your application.
 Let's say you have a module called `articles` and you want to add a store slice to that module,
@@ -10,7 +10,7 @@ then you can use Veams to do that automatically for you by using this blueprint.
 1. First of all be sure you have installed `veams-cli`.
 1. After that be sure your project contains a [`veams-cli.json`](https://github.com/Sebastian-Fitzner/generator-veams/blob/dev/generators/app/templates/veams-cli.json).
 1. Make sure you have updated `veams-cli.json` to fit the needs of your project.
-1. Install the package with `npm i veams-bp-redux --save-dev`.
+1. Install the package with `npm i @veams/bp-redux --save-dev`.
 1. Reference the package in `veams-cli.json` by adding `store` to the `blueprint` object like so:
 
 ``` json
@@ -18,8 +18,7 @@ then you can use Veams to do that automatically for you by using this blueprint.
     "blueprints": {
         "store": {
             "skipImports": true,
-            "prompts": "node_modules/veams-bp-redux/prompts",
-            "templates": "node_modules/veams-bp-redux/templates"
+            "path": "node_modules/@veams/bp-redux"
         }
     }
 }
