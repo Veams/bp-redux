@@ -27,12 +27,12 @@ function handle<%= bpJsName %>Load(state) {
 }
 
 function handle<%= bpJsName %>Loaded(state, payload) {
-	let entities = <% if (props.entitiesObject) { %>{}<% } else {%>payload.body<% } %>;<% if (props.entitiesObject) { %>
+	let entities = {};
 
 	for (let i = 0; i < payload.body.length; i++) {
 		entities[ payload.body[ i ].id ] = payload.body[ i ];
 	}
-	<% } %>
+
 	return {
 		...state,
 		fetchStatus: 'loaded',

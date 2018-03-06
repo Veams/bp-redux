@@ -12,17 +12,28 @@ export const get<%= bpJsName %> = state => state.<%= bpName %>;
  *
  * @param {Function} - Selector function which gets the whole slice of the state object.
  * @param {Function} - Returns entities state by using a simple arrow function.
+ *
+ * @return {Object}
  */
-export const get<%= bpJsName %>Entities = createSelector(get<%= bpJsName %>, <%= bpName %> => {<% if (props.entitiesObject) { %>
-	return Object.keys(<%= bpName %>.entities).map(key => <%= bpName %>.entities[key]);<% } else { %>
-	return <%= bpName %>.entities;<% } %>
-});
+export const get<%= bpJsName %>Entities = createSelector(get<%= bpJsName %>, <%= bpName %> => <%= bpName %>.entities);
+
+/**
+ * Return entities as array by using `createSelector`.
+ *
+ * @param {Function} - Selector function which gets the whole slice of the state object.
+ * @param {Function} - Returns entities state by using a simple arrow function.
+ *
+ * @return {Array}
+ */
+export const get<%= bpJsName %>Entities = createSelector(get<%= bpJsName %>, <%= bpName %> => Object.keys(<%= bpName %>.entities).map(key => <%= bpName %>.entities[key]));
 
 /**
  * Return fetch status state by using `createSelector`.
  *
  * @param {Function} - Selector function which gets the whole slice of the state object.
  * @param {Function} - Returns fetch status state by using a simple arrow function.
+ *
+ * @return {String}
  */
 export const get<%= bpJsName %>FetchStatus = createSelector(get<%= bpJsName %>, <%= bpName %> => <%= bpName %>.fetchStatus);
 
@@ -31,5 +42,7 @@ export const get<%= bpJsName %>FetchStatus = createSelector(get<%= bpJsName %>, 
  *
  * @param {Function} - Selector function which gets the whole slice of the state object.
  * @param {Function} - Returns error state by using a simple arrow function.
+ *
+ * @return {Object}
  */
 export const get<%= bpJsName %>Error = createSelector(get<%= bpJsName %>, <%= bpName %> => <%= bpName %>.error);
