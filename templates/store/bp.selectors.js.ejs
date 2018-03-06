@@ -13,7 +13,10 @@ export const get<%= bpJsName %> = state => state.<%= bpName %>;
  * @param {Function} - Selector function which gets the whole slice of the state object.
  * @param {Function} - Returns entities state by using a simple arrow function.
  */
-export const get<%= bpJsName %>Entities = createSelector(get<%= bpJsName %>, <%= bpName %> => <%= bpName %>.entities);
+export const get<%= bpJsName %>Entities = createSelector(get<%= bpJsName %>, <%= bpName %> => {<% if (props.entitiesObject) { %>
+	return Object.keys(<%= bpName %>.entities).map(key => <%= bpName %>.entities[key]);<% } else { %>
+	return <%= bpName %>.entities;<% } %>
+});
 
 /**
  * Return fetch status state by using `createSelector`.

@@ -7,7 +7,7 @@ then you can use Veams to do that automatically for you by using this blueprint.
 
 ## Setup
 
-1. First of all be sure you have installed `veams-cli`.
+1. First of all be sure you have installed `@veams/cli`.
 1. After that be sure your project contains a [`veams-cli.json`](https://github.com/Sebastian-Fitzner/generator-veams/blob/dev/generators/app/templates/veams-cli.json).
 1. Make sure you have updated `veams-cli.json` to fit the needs of your project.
 1. Install the package with `npm i @veams/bp-redux --save-dev`.

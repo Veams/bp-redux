@@ -1,7 +1,7 @@
-<%if (props.serviceLib === 'axios') { %>import axios from 'axios';<% } else { %>import VeamsHttp from 'veams-services/lib/http';<% } %>
+<%if (props.serviceLib === 'axios') { %>import axios from 'axios';<% } else { %>import HttpService from '@veams/http-service';<% } %>
 <% if (props.serviceLib === 'veamsHttp') { %>
 // Service intance
-let httpService = new VeamsHttp({
+let httpService = new HttpService({
 	type: 'json'
 });
 

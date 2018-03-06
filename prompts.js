@@ -1,6 +1,13 @@
 module.exports = (context) => {
 	return [
 		{
+			when: (answers) => answers.blueprints.indexOf('/store/bp.reducer.js.ejs') !== -1,
+			type: 'confirm',
+			name: 'entitiesObject',
+			message: 'Do you want to save your entities payload in an object based structure?',
+			default: true
+		},
+		{
 			when: (answers) => answers.blueprints.indexOf('/services/bp.service.js.ejs') !== -1,
 			type: 'confirm',
 			name: 'service',
@@ -14,7 +21,7 @@ module.exports = (context) => {
 			message: 'Which service lib do you want to use?',
 			choices: [
 				{
-					name: 'VeamsHttp',
+					name: '@veams/http-service',
 					value: 'veamsHttp'
 				},
 				{
