@@ -25,7 +25,7 @@ export const get<%= bpJsName %>Entities = createSelector(get<%= bpJsName %>, <%=
  *
  * @return {Array}
  */
-export const get<%= bpJsName %>Entities = createSelector(get<%= bpJsName %>, <%= bpName %> => Object.keys(<%= bpName %>.entities).map(key => <%= bpName %>.entities[key]));
+export const get<%= bpJsName %>EntitiesAsArray = createSelector(get<%= bpJsName %>, <%= bpName %> => Object.keys(<%= bpName %>.entities).map(key => <%= bpName %>.entities[key]));
 
 /**
  * Return fetch status state by using `createSelector`.
