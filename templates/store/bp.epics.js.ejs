@@ -1,8 +1,6 @@
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/switchMap';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/observable/of';
+import { ofType } from 'redux-observable';
+import { of } from 'rxjs';
+import { catchError, map, switchMap } from 'rxjs/operators';
 
 /**
  * Store specific files
@@ -14,8 +12,9 @@ import <%= bpName %>Service from '../services/<%= filename %>.service';
  * Read <%= bpName %> from API.
  */
 export const <%= bpName %>Read = (action$, store) =>
-	action$
-		.ofType(Actions.<%= bpName.toUpperCase() %>_LOAD)
-		.switchMap(() => <%= bpName %>Service.read())
-		.map(response => Actions.<%= bpName %>Loaded(response))
-		.catch((e) => Observable.of(Actions.<%= bpName %>LoadedFail(e)));
+	action$.pipe(
+		ofType(Actions.<%= bpName.toUpperCase() %>_LOAD),
+		switchMap(() => from(<%= bpName %>Service.read())),
+		map(response => Actions.<%= bpName %>Loaded(response)),
+		catchError(e => of(Actions.<%= bpName %>LoadedFail(e)))
+	);
